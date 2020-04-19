@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Add New Person</h2>
+  <div class="container">
+      <div class="alert alert-warning" *ngIf="personForm.dirty && personForm.invalid">Enter valid values</div>
+    <br>
+    <form (ngSubmit) = "!personForm.invalid && addPerson()" ngForm #personForm="ngForm">
+      <div class="form-group">
+        <label for="firstName">FirstName</label>
+        <input type="text" id="firstName" name="firstName" required minlength="3" [(ngModel)]="person.firstName" class="form-control"  placeholder="FirstName">
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">LastName</label>
+        <input type="text" id="lastName" name="lastName" required minlength="3"  [(ngModel)]="person.lastName" class="form-control"  placeholder="lastName">
+
+     </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" required [min]="18" [(ngModel)]="person.age" class="form-control"  placeholder="age">
+
+      </div>
+      <div class="form-group">
+        <label for="occupation">Occupation</label>
+        <input type="text" id="occupation" name="occupation" required [(ngModel)]="person.occupation" class="form-control"  placeholder="occupation">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+
+
+</div>

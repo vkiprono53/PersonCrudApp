@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h2>List Of Persons</h2>
+  <div>
+    <button class="btn btn-success" (click)="addPerson()">Add New Person</button>
+  </div>
+  <br>
+  <div class="alert-success" *ngIf="message">{{message}}
+  </div>
+  <div>
+  <table class="table">
+    <thead style="background-color:dodgerblue;color: white">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Age</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of persons">
+      <td class="counterCell"></td>
+      <td>{{person.firstName}}</td>
+      <td>{{person.lastName}}</td>
+      <td>{{person.age}}</td>
+      <td>{{person.occupation}}</td>
+      <td><button (click)="editPerson(person.id)" class="btn btn-primary">Update</button></td>
+      <td><button (click)="deletePerson(person.id)" class="btn btn-success">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
